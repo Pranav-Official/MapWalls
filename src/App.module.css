@@ -1,0 +1,128 @@
+/* 🏠 App — toolbar + device preview + search layout */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-page);
+}
+
+/* ─── Floating orbs ────────────────────────────────────────── */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+  width: 500px;
+  height: 500px;
+  background: var(--accent);
+  top: -200px;
+  right: -150px;
+  transition: var(--theme-transition);
+}
+
+.orb2 {
+  width: 400px;
+  height: 400px;
+  background: var(--accent);
+  top: auto;
+  right: auto;
+  bottom: -150px;
+  left: -100px;
+  opacity: 0.12;
+}
+
+/* ─── Toolbar ──────────────────────────────────────────────── */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-5);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 5;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--glass-subtle-bg);
+  backdrop-filter: blur(var(--glass-subtle-blur));
+  -webkit-backdrop-filter: blur(var(--glass-subtle-blur));
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.logo {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* ─── Tools area (right side of toolbar) ──────────────────── */
+.tools {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ─── Preview area ─────────────────────────────────────────── */
+.preview {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ─── Floating bottom toolbar ──────────────────────────────── */
+.floatBar {
+  position: absolute;
+  bottom: var(--space-4);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-lg);
+  background: var(--glass-heavy-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-elevated-border);
+  box-shadow: var(--shadow-lg);
+  white-space: nowrap;
+}
+
+.floatBarDivider {
+  width: 1px;
+  height: 28px;
+  background: var(--border-subtle);
+  flex-shrink: 0;
+}
+
+/* ─── Footer / Search bar ──────────────────────────────────── */
+.footer {
+  flex-shrink: 0;
+  padding: var(--space-3) var(--space-5) var(--space-5);
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+}

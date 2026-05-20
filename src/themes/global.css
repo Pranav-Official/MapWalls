@@ -1,0 +1,223 @@
+/* ============================================================
+ * 🌐 MapWalls — Global Styles
+ *
+ * CSS custom properties drive every visual property.
+ * `data-theme="dark|light"` on <html> switches the entire palette.
+ * No class name switching — one attribute rules all.
+ * ============================================================ */
+
+/* ─── Inter font ────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ─── CSS reset ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ─── Base variables (both themes share the shape) ──────────── */
+:root {
+  /* Spacing (constant) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* Radii (constant) */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Font (constant) */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* ══ Glassmorphism tokens (overridden per theme) ══ */
+  --glass-subtle-bg: rgba(255, 255, 255, 0.04);
+  --glass-subtle-border: rgba(255, 255, 255, 0.06);
+  --glass-subtle-blur: 12px;
+
+  --glass-elevated-bg: rgba(255, 255, 255, 0.08);
+  --glass-elevated-border: rgba(255, 255, 255, 0.1);
+  --glass-elevated-blur: 20px;
+
+  --glass-heavy-bg: rgba(255, 255, 255, 0.12);
+  --glass-heavy-border: rgba(255, 255, 255, 0.15);
+  --glass-heavy-blur: 30px;
+
+  /* Transition */
+  --theme-transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ═══ DARK THEME (default) ═══ */
+:root,
+:root[data-theme='dark'] {
+  --bg-page: #0d0f12;
+  --bg-elevated: #212529;
+  --bg-card: rgba(255, 255, 255, 0.04);
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+
+  --text-primary: #f1f3f5;
+  --text-secondary: #868e96;
+  --text-muted: #495057;
+  --text-inverse: #0d0f12;
+
+  --accent: #818cf8;
+  --accent-hover: #a5b4fc;
+  --accent-muted: rgba(129, 140, 248, 0.15);
+
+  --interactive-hover: rgba(255, 255, 255, 0.06);
+  --interactive-active: rgba(255, 255, 255, 0.1);
+  --interactive-disabled: rgba(255, 255, 255, 0.03);
+
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 24px rgba(129, 140, 248, 0.3);
+
+  --scrollbar: #343a40;
+  --selection: rgba(129, 140, 248, 0.3);
+
+  --glass-subtle-bg: rgba(255, 255, 255, 0.04);
+  --glass-subtle-border: rgba(255, 255, 255, 0.06);
+  --glass-subtle-blur: 12px;
+
+  --glass-elevated-bg: rgba(255, 255, 255, 0.08);
+  --glass-elevated-border: rgba(255, 255, 255, 0.1);
+  --glass-elevated-blur: 20px;
+
+  --glass-heavy-bg: rgba(255, 255, 255, 0.12);
+  --glass-heavy-border: rgba(255, 255, 255, 0.15);
+  --glass-heavy-blur: 30px;
+}
+
+/* ═══ LIGHT THEME ═══ */
+:root[data-theme='light'] {
+  --bg-page: #f1f3f5;
+  --bg-elevated: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.5);
+  --bg-overlay: rgba(0, 0, 0, 0.3);
+
+  --text-primary: #212529;
+  --text-secondary: #868e96;
+  --text-muted: #adb5bd;
+  --text-inverse: #ffffff;
+
+  --accent: #4f46e5;
+  --accent-hover: #6366f1;
+  --accent-muted: rgba(99, 102, 241, 0.1);
+
+  --interactive-hover: rgba(0, 0, 0, 0.04);
+  --interactive-active: rgba(0, 0, 0, 0.08);
+  --interactive-disabled: rgba(0, 0, 0, 0.02);
+
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --border-default: rgba(0, 0, 0, 0.1);
+  --border-strong: rgba(0, 0, 0, 0.18);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.2);
+
+  --scrollbar: #ced4da;
+  --selection: rgba(99, 102, 241, 0.2);
+
+  --glass-subtle-bg: rgba(255, 255, 255, 0.5);
+  --glass-subtle-border: rgba(255, 255, 255, 0.6);
+  --glass-subtle-blur: 12px;
+
+  --glass-elevated-bg: rgba(255, 255, 255, 0.7);
+  --glass-elevated-border: rgba(255, 255, 255, 0.8);
+  --glass-elevated-blur: 24px;
+
+  --glass-heavy-bg: rgba(255, 255, 255, 0.85);
+  --glass-heavy-border: rgba(255, 255, 255, 0.9);
+  --glass-heavy-blur: 30px;
+}
+
+/* ─── Base element styles ───────────────────────────────────── */
+html {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-page);
+  transition: var(--theme-transition);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* ─── Selection ─────────────────────────────────────────────── */
+::selection {
+  background: var(--selection);
+  color: var(--text-primary);
+}
+
+/* ─── Scrollbar (webkit) ────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ─── Focus ring ────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ─── Utility: glass surface (reusable via CSS class) ───────── */
+.glass-subtle {
+  background: var(--glass-subtle-bg);
+  backdrop-filter: blur(var(--glass-subtle-blur));
+  -webkit-backdrop-filter: blur(var(--glass-subtle-blur));
+  border: 1px solid var(--glass-subtle-border);
+}
+
+.glass-elevated {
+  background: var(--glass-elevated-bg);
+  backdrop-filter: blur(var(--glass-elevated-blur));
+  -webkit-backdrop-filter: blur(var(--glass-elevated-blur));
+  border: 1px solid var(--glass-elevated-border);
+}
+
+.glass-heavy {
+  background: var(--glass-heavy-bg);
+  backdrop-filter: blur(var(--glass-heavy-blur));
+  -webkit-backdrop-filter: blur(var(--glass-heavy-blur));
+  border: 1px solid var(--glass-heavy-border);
+}

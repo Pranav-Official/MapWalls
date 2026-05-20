@@ -1,0 +1,64 @@
+/* ⌨️ Glass Input */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding-left: var(--space-1);
+}
+
+.input {
+  all: unset;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--glass-subtle-bg);
+  backdrop-filter: blur(var(--glass-subtle-blur));
+  -webkit-backdrop-filter: blur(var(--glass-subtle-blur));
+  border: 1px solid var(--glass-subtle-border);
+  transition: var(--theme-transition);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.input:hover {
+  background: var(--glass-elevated-bg);
+  border-color: var(--border-default);
+}
+
+.input:focus {
+  background: var(--glass-elevated-bg);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-muted);
+}
+
+.errorInput {
+  border-color: var(--semantic-error, #ef4444);
+}
+
+.errorInput:focus {
+  border-color: var(--semantic-error, #ef4444);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.error {
+  font-size: 0.8rem;
+  color: var(--semantic-error, #ef4444);
+  padding-left: var(--space-1);
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding-left: var(--space-1);
+}

@@ -1,0 +1,122 @@
+/* 🎛️ Device Selector — bottom bar */
+
+.bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: var(--glass-elevated-bg);
+  backdrop-filter: blur(var(--glass-elevated-blur));
+  -webkit-backdrop-filter: blur(var(--glass-elevated-blur));
+  border-top: 1px solid var(--glass-elevated-border);
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 10;
+  user-select: none;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  width: 100%;
+  justify-content: center;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Option button ────────────────────────────────────────── */
+.option {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-md);
+  min-width: 60px;
+  transition:
+    background 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.option:hover {
+  background: var(--interactive-hover);
+}
+
+.option:active {
+  transform: scale(0.94);
+}
+
+/* ─── Active state — glass pill ────────────────────────────── */
+.active {
+  background: var(--glass-heavy-bg);
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-sm);
+}
+
+.active .icon {
+  transform: scale(1.15);
+}
+
+.active .label {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ─── Icon ─────────────────────────────────────────────────── */
+.icon {
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ─── Label ────────────────────────────────────────────────── */
+.label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+  transition: color 0.25s ease;
+}
+
+/* ─── Fade edges (scroll hint) ─────────────────────────────── */
+.fadeLeft,
+.fadeRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 24px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.fadeLeft {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    var(--bg-page) 0%,
+    transparent 100%
+  );
+  opacity: 0;
+}
+
+.fadeRight {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    var(--bg-page) 0%,
+    transparent 100%
+  );
+  opacity: 0;
+}

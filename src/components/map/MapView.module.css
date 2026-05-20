@@ -1,0 +1,74 @@
+/* 🗺️ Map View — fills the device content area */
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: var(--bg-page);
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+
+/* ─── Leaflet overrides: hide everything but the map ───────── */
+
+/* Remove default Leaflet padding/margins */
+.map :global(.leaflet-container) {
+  background: var(--bg-page);
+  font-family: var(--font-body);
+}
+
+/* Hide zoom control on small devices (pinch is enough) */
+@media (pointer: coarse) {
+  .map :global(.leaflet-control-zoom) {
+    display: none;
+  }
+}
+
+/* Style zoom control to match glass theme */
+.map :global(.leaflet-control-zoom) {
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.map :global(.leaflet-control-zoom a) {
+  background: var(--glass-heavy-bg) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-primary) !important;
+  border-bottom: 1px solid var(--border-subtle) !important;
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  font-size: 16px !important;
+  transition: background 0.2s ease;
+}
+
+.map :global(.leaflet-control-zoom a:hover) {
+  background: var(--interactive-hover) !important;
+}
+
+.map :global(.leaflet-control-zoom a.leaflet-disabled) {
+  color: var(--text-muted) !important;
+}
+
+/* Attribution link hidden (attributionControl={false}) — we set it in tile attrib */
+.map :global(.leaflet-control-attribution) {
+  display: none !important;
+}
+
+/* Remove default Leaflet tap highlight */
+.map :global(.leaflet-container) {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth tile loading + style transitions */
+.map :global(.leaflet-tile) {
+  transition: opacity 0.3s ease;
+}

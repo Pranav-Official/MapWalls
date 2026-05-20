@@ -1,0 +1,130 @@
+/* 🔘 Glass Button */
+
+.btn {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  transition: var(--theme-transition);
+  user-select: none;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ─── Sizes ─────────────────────────────────────────────────── */
+.sm {
+  padding: var(--space-1) var(--space-3);
+  font-size: 0.825rem;
+  height: 32px;
+}
+
+.md {
+  padding: var(--space-2) var(--space-5);
+  font-size: 0.9rem;
+  height: 40px;
+}
+
+.lg {
+  padding: var(--space-3) var(--space-6);
+  font-size: 1rem;
+  height: 48px;
+}
+
+/* ─── Variants ──────────────────────────────────────────────── */
+
+/* Primary — accent glass */
+.primary {
+  background: var(--accent);
+  color: var(--text-inverse);
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-glow);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+  box-shadow: var(--shadow-glow), 0 0 40px var(--accent-muted);
+  scale: 1.02;
+}
+
+.primary:active:not(:disabled) {
+  scale: 0.98;
+}
+
+/* Secondary — glass surface */
+.secondary {
+  background: var(--glass-elevated-bg);
+  backdrop-filter: blur(var(--glass-elevated-blur));
+  -webkit-backdrop-filter: blur(var(--glass-elevated-blur));
+  border: 1px solid var(--glass-elevated-border);
+  color: var(--text-primary);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--glass-heavy-bg);
+  border-color: var(--border-strong);
+}
+
+.secondary:active:not(:disabled) {
+  background: var(--interactive-active);
+}
+
+/* Ghost — transparent */
+.ghost {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+}
+
+.ghost:hover:not(:disabled) {
+  background: var(--interactive-hover);
+  color: var(--text-primary);
+}
+
+.ghost:active:not(:disabled) {
+  background: var(--interactive-active);
+}
+
+/* ─── Block ─────────────────────────────────────────────────── */
+.block {
+  width: 100%;
+}
+
+/* ─── Loading ───────────────────────────────────────────────── */
+.loading {
+  position: relative;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+.labelHidden {
+  visibility: hidden;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

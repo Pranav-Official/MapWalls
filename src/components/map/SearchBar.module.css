@@ -1,0 +1,106 @@
+/* 🔍 Search Bar — bottom glass input */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  background: var(--glass-elevated-bg);
+  backdrop-filter: blur(var(--glass-elevated-blur));
+  -webkit-backdrop-filter: blur(var(--glass-elevated-blur));
+  border: 1px solid var(--glass-elevated-border);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bar:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-muted);
+}
+
+/* ─── Icon ──────────────────────────────────────────────────── */
+.icon {
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+/* ─── Input ─────────────────────────────────────────────────── */
+.input {
+  all: unset;
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+  min-width: 0;
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ─── Submit button ─────────────────────────────────────────── */
+.submit {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--text-inverse);
+  flex-shrink: 0;
+  transition: background 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: scale(1.05);
+}
+
+.submit:active:not(:disabled) {
+  transform: scale(0.93);
+}
+
+.submit:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.submit:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ─── Loading spinner ───────────────────────────────────────── */
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Error ─────────────────────────────────────────────────── */
+.error {
+  font-size: 0.78rem;
+  color: var(--semantic-error, #ef4444);
+  padding: 0 var(--space-4);
+  text-align: center;
+}

@@ -1,0 +1,10 @@
+/* 🃏 Glass Card */
+
+.card {
+  transition: var(--theme-transition);
+  color: var(--text-primary);
+}
+
+.card:hover {
+  /* optional — child components can override */
+}
