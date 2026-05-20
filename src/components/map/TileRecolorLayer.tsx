@@ -99,10 +99,10 @@ export function TileRecolorLayer({ style }: Props) {
       },
     })
 
-    const layer = new Cls(TILE_URL, {
-      attribution: TILE_ATTR,
-      crossOrigin: 'anonymous',
-    })
+    const layer = new (Cls as unknown as new (url: string, opts: object) => L.TileLayer)(
+      TILE_URL,
+      { attribution: TILE_ATTR, crossOrigin: 'anonymous' },
+    )
 
     map.addLayer(layer)
     layerRef.current = layer

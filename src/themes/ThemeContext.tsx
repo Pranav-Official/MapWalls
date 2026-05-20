@@ -49,10 +49,6 @@ function getStoredMode(): ThemeMode | null {
   return null;
 }
 
-function resolveInitialMode(): ThemeMode {
-  return getStoredMode() ?? getPreferredScheme();
-}
-
 /* ─── Subscribe to storage changes (cross-tab sync) ─────────── */
 function subscribeToStorage(cb: () => void) {
   window.addEventListener('storage', cb);

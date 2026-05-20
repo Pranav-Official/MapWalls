@@ -5,7 +5,7 @@
  * ============================================================ */
 
 import { type ReactNode, type CSSProperties } from 'react';
-import { type GlassLevel, type GlassProps, glassStyles } from '../../themes/glass';
+import { type GlassProps, glassStyles } from '../../themes/glass';
 import styles from './GlassCard.module.css';
 
 interface GlassCardProps extends GlassProps {

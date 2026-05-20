@@ -89,7 +89,7 @@ export function DeviceFrame({ children, ratio }: DeviceFrameProps) {
 
           {/* ── Ratio label (bottom-right corner of bezel) ── */}
           <div className={styles.badge}>
-            <span className={styles.badgeIcon}>{ratio.icon}</span>
+            <span className={styles.badgeIcon}>{ratio.iconName}</span>
             <span>{ratio.label}</span>
           </div>
         </div>

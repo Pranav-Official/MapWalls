@@ -45,7 +45,7 @@ export function DeviceSelector({ activeId, onChange }: DeviceSelectorProps) {
               aria-label={`${ratio.label} — ${ratio.category}`}
               title={`${ratio.category} ${ratio.label}`}
             >
-              <span className={styles.icon}>{ratio.icon}</span>
+              <span className={styles.icon}>{ratio.iconName}</span>
               <span className={styles.label}>{ratio.label}</span>
             </button>
           );

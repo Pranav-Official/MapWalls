@@ -7,7 +7,7 @@
  * sync when the device frame animates to a new aspect ratio.
  * ============================================================ */
 
-import { useEffect, useRef, forwardRef, useImperativeHandle } from 'react'
+import { useEffect, useRef } from 'react'
 import { MapContainer, useMap } from 'react-leaflet'
 import type { Map as LeafletMap } from 'leaflet'
 import type { GeocodeResult } from './useGeocode'
@@ -25,7 +25,7 @@ const DEFAULT_ZOOM = 2
  * dimensions after device frame transitions.
  * ════════════════════════════════════════════════════════════ */
 function MapResizer({ map }: { map: LeafletMap }) {
-  const timerRef = useRef<ReturnType<typeof setTimeout>>()
+  const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 
   useEffect(() => {
     const container = map.getContainer()
