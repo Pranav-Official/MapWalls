@@ -49,13 +49,15 @@ function App() {
 
       {/* ── Device preview with map ── */}
       <main className={styles.preview}>
-        <DeviceFrame ratio={activeRatio}>
-          <MapView
-            geocodeResult={geocodeResult}
-            style={mapStyle}
-            onMapReady={handleMapReady}
-          />
-        </DeviceFrame>
+        <div className={styles.viewport}>
+          <DeviceFrame ratio={activeRatio}>
+            <MapView
+              geocodeResult={geocodeResult}
+              style={mapStyle}
+              onMapReady={handleMapReady}
+            />
+          </DeviceFrame>
+        </div>
 
         {/* ── Floating bottom toolbar ── */}
         <div className={styles.floatBar}>
